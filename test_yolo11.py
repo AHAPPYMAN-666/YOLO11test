@@ -9,7 +9,7 @@ def test_yolo11():
     """测试YOLO11模型（仅本地图片+视频）"""
 
     # ====================== 1. 检查运行环境 ======================
-    # 打印导入的 ultralytics 模块所在路径11111
+    # 打印导入的 ultralytics 模块所在路径
     print("ultralytics 模块路径：", ultralytics.__file__)
     print("=" * 50)
     print("正在检查运行环境...")

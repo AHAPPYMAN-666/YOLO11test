@@ -180,4 +180,8 @@ calibration_*.npy
 yolo11_cu123/
 
 # 补充：排除你自定义的测试结果目录（避免跟踪本地测试生成的结果图/视频）
+<<<<<<< HEAD
 ultralytics/assets/yolo11_test_results/
+=======
+ultralytics/assets/yolo11_test_results/
+>>>>>>> 6d1ac0bac32e989a6ecc3223fa189cb2d01d95c6
