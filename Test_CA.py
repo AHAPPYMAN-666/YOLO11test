@@ -47,6 +47,6 @@ def validate_ca_module():
     print("验证点确认：1. 模块被正确识别 2. 前向传播无错误 3. 参数匹配配置")
 
 if __name__ == "__main__":
-    model = YOLO('ultralytics/cfg/models/11/yolo11n.yaml', task='detect')
-    model.train(data='data.yaml', epochs=100, batch=4, imgsz=640,workers=0)  # 若能正常训练，说明CA完全兼容
     validate_ca_module()
+    model = YOLO('ultralytics/cfg/models/11/yolo11n.yaml', task='detect')
+    model.train(data='data.yaml', epochs=100, batch=16, imgsz=640,workers=0)  # 若能正常训练，说明CA完全兼容
