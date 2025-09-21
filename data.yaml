@@ -1,0 +1,4 @@
+train: ../Data/archive/dataset/dataset/train/images
+val: ../Data/archive/dataset/dataset/valid/images
+nc: 3
+names: ["Potholes", "Cracks", "Open Manholes"]

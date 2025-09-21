@@ -6,7 +6,6 @@ import re
 import types
 from copy import deepcopy
 from pathlib import Path
-
 import torch
 import torch.nn as nn
 
@@ -68,6 +67,7 @@ from ultralytics.nn.modules import (
     YOLOEDetect,
     YOLOESegment,
     v10Detect,
+    CA,
 )
 from ultralytics.utils import DEFAULT_CFG_DICT, LOGGER, YAML, colorstr, emojis
 from ultralytics.utils.checks import check_requirements, check_suffix, check_yaml
@@ -1594,6 +1594,7 @@ def parse_model(d, ch, verbose=True):
             SCDown,
             C2fCIB,
             A2C2f,
+            CA,
         }
     )
     repeat_modules = frozenset(  # modules with 'repeat' arguments
