@@ -1,0 +1,9 @@
+# YOLOv11 数据集配置文件（3类别）
+path: Data/archive/dataset/dataset  # 数据集根目录（需与实际路径一致）
+train: train/images  # 训练图像路径（相对于 path）
+val: valid/images    # 验证图像路径（相对于 path）
+test: test/images    # 测试图像路径（相对于 path，可选）
+
+# 类别信息（0~2 分别对应 Potholes、cracks、OpenManHoles）
+nc: 3
+names: ['Potholes', 'cracks', 'OpenManHoles']
