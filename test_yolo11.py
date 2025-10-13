@@ -1,21 +1,23 @@
-import cv2
 import os
 import time
-from ultralytics import YOLO
+
+import cv2
 import torch
+
 import ultralytics
+from ultralytics import YOLO
+
 
 def test_yolo11():
-    """测试YOLO11模型（仅本地图片+视频）"""
-
+    """测试YOLO11模型（仅本地图片+视频）."""
     # ====================== 1. 检查运行环境 ======================
     # 打印导入的 ultralytics 模块所在路径
     print("ultralytics 模块路径：", ultralytics.__file__)
     print("=" * 50)
     print("正在检查运行环境...")
-    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"使用设备: {device}")
-    if device == 'cuda':
+    if device == "cuda":
         print(f"GPU型号: {torch.cuda.get_device_name(0)}")
         print(f"CUDA版本: {torch.version.cuda}")
         print(f"PyTorch版本: {torch.__version__}")
@@ -56,9 +58,7 @@ def test_yolo11():
     print("\n" + "=" * 50)
     print("准备本地测试视频...")
     # 替换为你实际的本地视频路径（确保文件存在，如MP4格式）
-    test_video_path = os.path.join(
-        os.path.dirname(__file__), "ultralytics", "assets", "8333.mp4"
-    )
+    test_video_path = os.path.join(os.path.dirname(__file__), "ultralytics", "assets", "8333.mp4")
     valid_video_path = test_video_path if os.path.exists(test_video_path) else None
     if valid_video_path:
         print(f"找到测试视频: {test_video_path}")
@@ -86,9 +86,7 @@ def test_yolo11():
                 print(f"  - {class_name}: {confidence:.2f}")
 
             # 保存带检测框的图像
-            save_path = os.path.join(
-                output_dir, f"img_result_{i}_{os.path.basename(img_path).split('.')[0]}.jpg"
-            )
+            save_path = os.path.join(output_dir, f"img_result_{i}_{os.path.basename(img_path).split('.')[0]}.jpg")
             result.save(save_path)
             print(f"图像结果已保存至: {save_path}")
 
@@ -111,7 +109,7 @@ def test_yolo11():
         fps = int(cap.get(cv2.CAP_PROP_FPS))
         width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
         height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-        fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+        fourcc = cv2.VideoWriter_fourcc(*"mp4v")
         video_save = os.path.join(output_dir, "video_result.mp4")
         out = cv2.VideoWriter(video_save, fourcc, fps, (width, height))
 
@@ -128,7 +126,7 @@ def test_yolo11():
 
             out.write(annotated_frame)
             cv2.imshow("YOLO11 视频检测", annotated_frame)
-            if cv2.waitKey(1) & 0xFF == ord('q'):  # 按'q'提前退出
+            if cv2.waitKey(1) & 0xFF == ord("q"):  # 按'q'提前退出
                 break
 
         cap.release()
