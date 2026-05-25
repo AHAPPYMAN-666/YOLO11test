@@ -121,7 +121,7 @@ def test_train():
             epochs=1,
             device=device,
             workers=0,  # 核心：关闭多进程数据加载，Windows系统内存友好
-            batch=4     # 核心：减小批次大小，适配3050 Ti 4GB显存
+            batch=4,  # 核心：减小批次大小，适配3050 Ti 4GB显存
         )
         visible = eval(os.environ["CUDA_VISIBLE_DEVICES"])
         assert visible == device, f"Passed GPUs '{device}', but used GPUs '{visible}'"
